@@ -8,7 +8,7 @@ CREATE TABLE SZPITAL..lekarze
     , lekarz_imie			VARCHAR(25) 
 	, lekarz_nazwisko		VARCHAR(50)
 	, lekarz_pensja			MONEY
-	, lekarz_tytul			VARCHAR(25)
+	, lekarz_tytul			VARCHAR(8) NOT NULL CHECK (lekarz_tytul IN('dr', 'prof. dr'))
 	, lekarz_specjalizacja	VARCHAR(50)
 	, lekarz_pesel			VARCHAR(11)
 	, oddzial_id			INT
