@@ -16,12 +16,9 @@ CREATE TABLE SZPITAL..lekarze
 GO
 
 CREATE TABLE SZPITAL..oddzialy 
-    ( oddzial_id INT NOT NULL
+    ( oddzial_id INT PRIMARY KEY
 	, oddzial_nazwa VARCHAR(50)
     ); 
-GO
-
-ALTER TABLE SZPITAL..oddzialy ADD CONSTRAINT oddzial_id_pk PRIMARY KEY (oddzial_id) ;
 GO
 
 ALTER TABLE SZPITAL..lekarze ADD CONSTRAINT oddzial_id_fk FOREIGN KEY (oddzial_id) REFERENCES oddzialy(oddzial_id);
@@ -41,8 +38,6 @@ CREATE TABLE SZPITAL..pacjenci
     );
 GO
 
---ALTER TABLE SZPITAL..pacjenci ADD CONSTRAINT pacjent_id_pk PRIMARY KEY (pacjent_id) ;
---GO
 
 ALTER TABLE SZPITAL..lekarze ADD CONSTRAINT oddzial_id_fk FOREIGN KEY (oddzial_id) REFERENCES oddzialy(oddzial_id);
 GO
@@ -60,22 +55,22 @@ CREATE TABLE SZPITAL..terapie
     ( terapia_id		INT PRIMARY KEY
 	, terapia_data_rozp	DATE NOT NULL
 	, terapia_data_zak	DATE DEFAULT NULL
-	, choroba_id		INT 
-	, zabieg_id			INT
-	, lekarstwo_id		INT
+	, choroba_id		INT NOT NULL
+	, zabieg_id			INT DEFAULT NULL
+	, lekarstwo_id		INT DEFAULT NULL
     );
 GO
 
 CREATE TABLE SZPITAL..zabiegi
     ( zabieg_id		INT PRIMARY KEY
-    , zabieg_nazwa	INT 
+    , zabieg_nazwa	VARCHAR(50)
 	, zabieg_opis	VARCHAR(200)
     );
 GO
 
 CREATE TABLE SZPITAL..lekarstwa
     ( lekarstwo_id		INT PRIMARY KEY
-    , lekarstwo_nazwa	INT 
+    , lekarstwo_nazwa	VARCHAR(50)
 	, lekarstwo_opis	VARCHAR(200)
 	, lekarstwo_dawkowanie_dzien	INT
     );
@@ -86,3 +81,4 @@ GO
 
 ALTER TABLE SZPITAL..terapie ADD CONSTRAINT lekarstwa_id_fk FOREIGN KEY (lekarstwo_id) REFERENCES lekarstwa(lekarstwo_id);
 GO
+
