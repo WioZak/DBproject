@@ -11,21 +11,13 @@ imie nazwisko pensja tytyl specjalizacja i pesel
 9. Miranda Bailey 5394 Dr. Internista 89122503495
 10.Alex Karev 3495 Dr. Ortopeda 91071102393
 
-<<<<<<< HEAD
-
 oddziały
 Anastezjologii i Intensywnej Terapii
 Neurologii
 Położniczy
 Chirurgii Urazowej i Ortopedii
 Kardiologiczny
-=======
-Oddziały:
-nazwa id
-1. Oddział Chirurgii Ogólnej 1
-2. Oddział Anestezjologii i Ortopedii 2
-3. Oddział SOR 3
-4. Oddział Psychologii 4
+Psychologii
 
 Pacjenci:
 imie nazwisko pesel data_przyjecia data_wypisu
@@ -60,5 +52,3 @@ imie nazwisko pesel data_przyjecia data_wypisu
 29. Hanna Kaczmarczyk 78042607000 
 30. Wiktor Kopeć 11281113750 
 
-
->>>>>>> e22a2d0771c10d83ba24e0ac4a550a222d86dd7f

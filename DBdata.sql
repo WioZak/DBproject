@@ -4,6 +4,8 @@ INSERT INTO SZPITAL..oddzialy VALUES ('Neurologii');
 INSERT INTO SZPITAL..oddzialy VALUES ('Położniczy');
 INSERT INTO SZPITAL..oddzialy VALUES ('Chirurgii Urazowej i Ortopedii');
 INSERT INTO SZPITAL..oddzialy VALUES ('Kardiologiczny');
+INSERT INTO SZPITAL..oddzialy VALUES ('Psychologii');
+
 -- Wypelnij lekarze
 INSERT INTO SZPITAL..lekarze VALUES ('Alicja', 'Szymańska-Keller', '6453', 'prof. dr', 'chirurg', '85050410904');
 INSERT INTO SZPITAL..lekarze VALUES ('Piotr', 'Wanat', '3495', 'prof. dr', 'ginekolog', '86030218750');
