@@ -1,22 +1,23 @@
-if exists(select 1 from master.dbo.sysdatabases where name = 'SZPITAL') drop database SZPITAL
-GO
+--if exists(select 1 from master.dbo.sysdatabases where name = 'SZPITAL') drop database SZPITAL
+--GO
+
 CREATE DATABASE SZPITAL
 GO
 
 CREATE TABLE SZPITAL..lekarze
-    ( lekarz_id				INT PRIMARY KEY
+    ( lekarz_id				INT PRIMARY KEY IDENTITY(1,1)
     , lekarz_imie			VARCHAR(25) 
 	, lekarz_nazwisko		VARCHAR(50)
 	, lekarz_pensja			MONEY
 	, lekarz_tytul			VARCHAR(8) NOT NULL CHECK (lekarz_tytul IN('dr', 'prof. dr'))
-	, lekarz_specjalizacja	VARCHAR(50)
+	, lekarz_specjalizacja	VARCHAR(50) 
 	, lekarz_pesel			VARCHAR(11)
 	, oddzial_id			INT
     );
 GO
 
 CREATE TABLE SZPITAL..oddzialy 
-    ( oddzial_id		INT PRIMARY KEY
+    ( oddzial_id		INT PRIMARY KEY IDENTITY(1,1)
 	, oddzial_nazwa		VARCHAR(50)
     ); 
 GO
@@ -26,7 +27,7 @@ GO
 
 
 CREATE TABLE SZPITAL..pacjenci
-    ( pacjent_id				INT PRIMARY KEY
+    ( pacjent_id				INT PRIMARY KEY IDENTITY(1,1)
     , pacjent_imie				VARCHAR(25) 
 	, pacjent_nazwisko			VARCHAR(50)
 	, pacjent_pesel				VARCHAR(11) NOT NULL UNIQUE
@@ -40,7 +41,7 @@ CREATE TABLE SZPITAL..pacjenci
 GO
 
 CREATE TABLE SZPITAL..jednostki_chorobowe
-    ( choroba_id		INT PRIMARY KEY
+    ( choroba_id		INT PRIMARY KEY IDENTITY(1,1)
     , choroba_nazwa		VARCHAR(50) NOT NULL
     );
 GO
@@ -52,7 +53,7 @@ ALTER TABLE SZPITAL..pacjenci ADD CONSTRAINT choroba_id_fk FOREIGN KEY (choroba_
 GO
 
 CREATE TABLE SZPITAL..terapie
-    ( terapia_id		INT PRIMARY KEY
+    ( terapia_id		INT PRIMARY KEY IDENTITY(1,1)
 	, terapia_data_rozp	DATE NOT NULL
 	, terapia_data_zak	DATE DEFAULT NULL
 	, choroba_id		INT NOT NULL
@@ -65,14 +66,14 @@ ALTER TABLE SZPITAL..pacjenci ADD CONSTRAINT terapia_id_fk FOREIGN KEY (terapia_
 GO
 
 CREATE TABLE SZPITAL..zabiegi
-    ( zabieg_id		INT PRIMARY KEY
+    ( zabieg_id		INT PRIMARY KEY IDENTITY(1,1)
     , zabieg_nazwa	VARCHAR(50)
 	, zabieg_opis	VARCHAR(200)
     );
 GO
 
 CREATE TABLE SZPITAL..lekarstwa
-    ( lekarstwo_id					INT PRIMARY KEY
+    ( lekarstwo_id					INT PRIMARY KEY IDENTITY(1,1)
     , lekarstwo_nazwa				VARCHAR(50)
 	, lekarstwo_opis				VARCHAR(200)
 	, lekarstwo_dawkowanie_dzien	INT
