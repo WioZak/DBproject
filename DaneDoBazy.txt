@@ -1,7 +1,7 @@
 Lekarze:
 imie nazwisko pensja tytyl specjalizacja i pesel
 1. Alicja Szymańska-Keller 6453 Prof. Dr. Chirurg 85050410904
-2. Piotr Wanat 3495 Prof. Dr. Ginekolog 86030218750
+2. Piotr Wanat 3495 Prof. Dr. Psycholog 86030218750
 3. Leon Jasiński 5326 Prof. Dr. Chirurg 87052603078
 4. Adam Gajewski 2497 Dr. Internista 83021611109
 5. Beata Jasińska 3258 Prof. Dr. Anestezjolog 89010414940
@@ -10,3 +10,45 @@ imie nazwisko pensja tytyl specjalizacja i pesel
 8. Cristina Yang 5394 Dr. Anestezjolog 86111201804
 9. Miranda Bailey 5394 Dr. Internista 89122503495
 10.Alex Karev 3495 Dr. Ortopeda 91071102393
+
+Oddziały:
+nazwa id
+1. Oddział Chirurgii Ogólnej 1
+2. Oddział Anestezjologii i Ortopedii 2
+3. Oddział SOR 3
+4. Oddział Psychologii 4
+
+Pacjenci:
+imie nazwisko pesel data_przyjecia data_wypisu
+1. Jan Kowalski 15212408487 
+2. Anna Nowak 06280313805 
+3. Marta Zając 92062305876 
+4. Norbert Majchrzak 10221913326 
+5. Emilia Wróbel 87010414267 
+6. Laura Sawicka 93050418778 
+7. Bartek Michalski 04300407149 
+8. Zuzanna Szymańska 05280316740 
+9. Filip Orzechowski 80061608311 
+10. Małgorzata Stępień 07311214757 
+11. Dawid Jabłoński 76052505664 
+12. Ida Matuszewska 97072809970 
+13. Ignacy Nowicki 77062017662 
+14. Jakub Kaczor 93062006866 
+15. Paulina Lewandowska 83021613675 
+16. Nikola Sobczyk 08222413006 
+17. Zofia Pawlik 14250605166 
+18. Antoni Stępień 93101015736 
+19. Jan Stankiewicz 98082714306 
+20. Jan Zięba 91070406962 
+21. Lena Jasińska 83031407703 
+22. Mateusz Kwiatkowski 81070612607 
+23. Julia Andrzejewska 01253119554 
+24. Bartek Król 95062403483 
+25. Jakub Walczak 00212614318 
+26. Nela Tomaszewska 75030917332 
+27. Aleksandra Pawlak 81111700247 
+28. Dawid Sawicki 07230804626 
+29. Hanna Kaczmarczyk 78042607000 
+30. Wiktor Kopeć 11281113750 
+
+
