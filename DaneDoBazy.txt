@@ -1,10 +1,10 @@
 ﻿Lekarze:
 imie nazwisko pensja tytyl specjalizacja i pesel
 1. Alicja Szymańska-Keller 6453 Prof. Dr. Chirurg 85050410904
-2. Piotr Wanat 3495 Prof. Dr. Psycholog 86030218750
+2. Piotr Wanat 3495 Prof. Dr. Psychiatra 86030218750
 3. Leon Jasiński 5326 Prof. Dr. Chirurg 87052603078
 4. Adam Gajewski 2497 Dr. Internista 83021611109
-5. Beata Jasińska 3258 Prof. Dr. Anestezjolog 89010414940
+5. Beata Jasińska 3258 Prof. Dr. Dermatolog 89010414940
 6. Jarosław Góra 4305 Dr. Ortopeda 83020114511
 7. Andrzej Nowisz 1945 Mg. Psycholog 92061318934
 8. Cristina Yang 5394 Dr. Anestezjolog 86111201804
@@ -51,4 +51,47 @@ imie nazwisko pesel data_przyjecia data_wypisu
 28. Dawid Sawicki 07230804626 
 29. Hanna Kaczmarczyk 78042607000 
 30. Wiktor Kopeć 11281113750 
+
+Jednostki chorobowe
+anemia
+żółtaczka
+udar mózgu (neurologia)
+depresja (psychiatrii)
+cukrzyca 
+złamanie otwarte przedramienia (chirurgii urazowej)
+zwichnięcie stawu skokowego (chirurgii urazowej)
+astma oskrzelowa
+oparzenie (dermatologii)
+łuszczyca (dermatologii)
+atopowe zapalenie skóry (dermatologii)
+kamica pęcherzyka żółciowego (anastezjologii...)
+przepuklina (anastezjologii...)
+ostre zapalenie trzustki (anastezjologii...)
+miażdżca (kardialogia)
+choroba niedokrwienna serca (kardiologia)
+stany lękowe (psychiatrii)
+zapalenie płuc
+zapalenie wyrostka robaczkowego (anastezjologii...)
+padaczka (neurologia)
+alzheimer (neurologia)
+migrena (neurologia)
+
+
+zabiegi:
+wycięcie wyrostka
+naświetlanie lampami (to można dodać do jakiejś choroby skóry)
+rehabilitacja stawu skokowego
+rehabilitacja przedramienia
+operacja przepukliny
+rehabilitacja poudarowa
+
+
+lekarstwa: nazwa opis dawkowanie
+aescin (depresja) 3x1
+nerwonal (stany lękowe) 1x1
+ridlip (miażdżyca) 2x1
+opokan (bóle kostno-stawowe) doraźnie max 6
+paracetamol (bóle) 3x1
+linomag (luszczyca, atopowe zapalenie skory) 5x1
+
 

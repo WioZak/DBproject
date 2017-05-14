@@ -76,7 +76,7 @@ CREATE TABLE SZPITAL..lekarstwa
     ( lekarstwo_id					INT PRIMARY KEY IDENTITY(1,1)
     , lekarstwo_nazwa				VARCHAR(50)
 	, lekarstwo_opis				VARCHAR(200)
-	, lekarstwo_dawkowanie_dzien	INT
+	, lekarstwo_dawkowanie_dzien	VARCHAR(30)
     );
 GO
 
