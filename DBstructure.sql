@@ -34,11 +34,9 @@ CREATE TABLE SZPITAL..pacjenci
 	CONSTRAINT pacjent_peselC CHECK (pacjent_pesel LIKE '%[0-9]%')
 	, pacjent_data_przyjecia	DATE NOT NULL
 	, pacjent_data_wypisu		DATE
-	, lekarz_id					INT NOT NULL
-	, choroba_id				INT
-	, terapia_id				INT
     );
 GO
+
 
 CREATE TABLE SZPITAL..jednostki_chorobowe
     ( choroba_id		INT PRIMARY KEY IDENTITY(1,1)
@@ -46,10 +44,10 @@ CREATE TABLE SZPITAL..jednostki_chorobowe
     );
 GO
 
-ALTER TABLE SZPITAL..pacjenci ADD CONSTRAINT lekarz_id_fk FOREIGN KEY (lekarz_id) REFERENCES lekarze(lekarz_id);
-GO
-
-ALTER TABLE SZPITAL..pacjenci ADD CONSTRAINT choroba_id_fk FOREIGN KEY (choroba_id) REFERENCES jednostki_chorobowe(choroba_id);
+CREATE TABLE SZPITAL..zabiegi
+    ( zabieg_id		INT PRIMARY KEY IDENTITY(1,1)
+    , zabieg_nazwa	VARCHAR(50)
+    );
 GO
 
 CREATE TABLE SZPITAL..terapie
@@ -59,30 +57,40 @@ CREATE TABLE SZPITAL..terapie
 	, choroba_id		INT NOT NULL
 	, zabieg_id			INT DEFAULT NULL
 	, lekarstwo_id		INT DEFAULT NULL
-    );
-GO
-
-ALTER TABLE SZPITAL..pacjenci ADD CONSTRAINT terapia_id_fk FOREIGN KEY (terapia_id) REFERENCES terapie(terapia_id);
-GO
-
-CREATE TABLE SZPITAL..zabiegi
-    ( zabieg_id		INT PRIMARY KEY IDENTITY(1,1)
-    , zabieg_nazwa	VARCHAR(50)
-	, zabieg_opis	VARCHAR(200)
+	, lekarz_id			INT NOT NULL
     );
 GO
 
 CREATE TABLE SZPITAL..lekarstwa
     ( lekarstwo_id					INT PRIMARY KEY IDENTITY(1,1)
     , lekarstwo_nazwa				VARCHAR(50)
-	, lekarstwo_opis				VARCHAR(200)
+	, lekarstwo_przeznaczenie		VARCHAR(200)
 	, lekarstwo_dawkowanie_dzien	VARCHAR(30)
     );
-GO
-
-ALTER TABLE SZPITAL..terapie ADD CONSTRAINT zabiegi_id_fk FOREIGN KEY (zabieg_id) REFERENCES zabiegi(zabieg_id);
 GO
 
 ALTER TABLE SZPITAL..terapie ADD CONSTRAINT lekarstwa_id_fk FOREIGN KEY (lekarstwo_id) REFERENCES lekarstwa(lekarstwo_id);
 GO
 
+ALTER TABLE SZPITAL..terapie ADD CONSTRAINT zabiegi_id_fk FOREIGN KEY (zabieg_id) REFERENCES zabiegi(zabieg_id);
+GO
+
+ALTER TABLE SZPITAL..terapie ADD CONSTRAINT lekarz_id_fk FOREIGN KEY (lekarz_id) REFERENCES lekarze(lekarz_id);
+GO
+
+ALTER TABLE SZPITAL..terapie ADD CONSTRAINT choroba_id_fk FOREIGN KEY (choroba_id) REFERENCES jednostki_chorobowe(choroba_id);
+GO
+
+
+CREATE TABLE SZPITAL..pacjenci_terapie
+    ( p_t_id					INT PRIMARY KEY IDENTITY(1,1)
+    , terapia_id				INT NOT NULL
+	, pacjent_id				INT NOT NULL
+    );
+GO
+
+ALTER TABLE SZPITAL..pacjenci_terapie ADD CONSTRAINT terapia_id_fk FOREIGN KEY (terapia_id) REFERENCES terapie(terapia_id);
+GO
+
+ALTER TABLE SZPITAL..pacjenci_terapie ADD CONSTRAINT pacjent_id_fk FOREIGN KEY (pacjent_id) REFERENCES pacjenci(pacjent_id);
+GO
