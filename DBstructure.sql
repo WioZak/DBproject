@@ -84,8 +84,8 @@ GO
 
 CREATE TABLE SZPITAL..pacjenci_terapie
     ( p_t_id					INT PRIMARY KEY IDENTITY(1,1)
-    , terapia_id				INT NOT NULL
 	, pacjent_id				INT NOT NULL
+	, terapia_id				INT NOT NULL
     );
 GO
 
