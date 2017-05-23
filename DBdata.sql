@@ -17,9 +17,9 @@ INSERT INTO SZPITAL..lekarze VALUES ('Beata', 'Jasińska', '19000', 'prof. dr', 
 INSERT INTO SZPITAL..lekarze VALUES ('Jarosław', 'Góra', '10000', 'dr', 'ortopeda', '83020114511', 3);
 INSERT INTO SZPITAL..lekarze VALUES ('Andrzej', 'Nowisz', '7000', 'mgr', 'psycholog', '92061318934', 5);
 INSERT INTO SZPITAL..lekarze VALUES ('Cristina', 'Yang', '15000', 'dr', 'chirurg', '86111201804', 1);
-INSERT INTO SZPITAL..lekarze VALUES ('Miranda', 'Bailey', '170000', 'dr', 'neurolog', '89122503495', 2);
+INSERT INTO SZPITAL..lekarze VALUES ('Miranda', 'Bailey', '17000', 'dr', 'neurolog', '89122503495', 2);
 INSERT INTO SZPITAL..lekarze VALUES ('Alex', 'Karev', '12000', 'dr', 'ortopeda', '91071102393', 3);
-INSERT INTO SZPITAL..lekarze VALUES ('Cyryl', 'Grzelak', '160000', 'prof. dr', 'diabetolog', '61592759375', 7);
+INSERT INTO SZPITAL..lekarze VALUES ('Cyryl', 'Grzelak', '16000', 'prof. dr', 'diabetolog', '61592759375', 7);
 INSERT INTO SZPITAL..lekarze VALUES ('Agnieszka', 'Marek', '11000', 'dr', 'gastrolog', '83757505924', 7);
 INSERT INTO SZPITAL..lekarze VALUES ('Wanda', 'Kluska', '20000', 'prof. dr', 'pulmonolog', '47592727918', 8);
 
@@ -57,7 +57,7 @@ INSERT INTO SZPITAL..pacjenci VALUES ('Aleksandra', 'Pawlak', '81111700247', '20
 INSERT INTO SZPITAL..pacjenci VALUES ('Hanna', 'Kaczmarczyk', '78042607000', '2017-05-22', NULL);
 
 
--- Wypelnij jednostki chorobowe
+-- Wypelnij jednostki_chorobowe
 INSERT INTO SZPITAL..jednostki_chorobowe VALUES ('anemia');
 INSERT INTO SZPITAL..jednostki_chorobowe VALUES ('wirusowe zapalenie wątroby typu C'); -- gastrolog
 INSERT INTO SZPITAL..jednostki_chorobowe VALUES ('udar mózgu'); --neurolog
@@ -83,13 +83,13 @@ INSERT INTO SZPITAL..jednostki_chorobowe VALUES ('migrena'); --neurolog
 
 -- Wypelnij zabiegi
 INSERT INTO SZPITAL..zabiegi VALUES ('wycięcie wyrostka');
-INSERT INTO SZPITAL..zabiegi VALUES ('naświetlanie lampami'); -- dermatologiczne
+INSERT INTO SZPITAL..zabiegi VALUES ('naświetlanie lampami'); 
 INSERT INTO SZPITAL..zabiegi VALUES ('rehabilitacja stawu skokowego');
 INSERT INTO SZPITAL..zabiegi VALUES ('rehabilitacja przedramienia');
 INSERT INTO SZPITAL..zabiegi VALUES ('operacja przepukliny');
 INSERT INTO SZPITAL..zabiegi VALUES ('rehabilitacja poudarowa');
 INSERT INTO SZPITAL..zabiegi VALUES ('krioterapia');
-INSERT INTO SZPITAL..zabiegi VALUES ('inhalacje'); --zapalenie płuc/astma
+INSERT INTO SZPITAL..zabiegi VALUES ('inhalacje'); 
 INSERT INTO SZPITAL..zabiegi VALUES ('usunięcie woreczka żółciowego'); 
 INSERT INTO SZPITAL..zabiegi VALUES ('psychoterapia'); 
 
@@ -112,40 +112,38 @@ INSERT INTO SZPITAL..lekarstwa VALUES ('phenobarbital', 'padaczka', '3x1');
 
 
 
--- Wypelnij terapie
--- INSERT INTO SZPITAL..terapie VALUES ('', '', , , , , );
--- choroba, zabieg, lekarstwo, lekarz, pacjent
-INSERT INTO SZPITAL..terapie VALUES ('2016-05-30', '2016-09-30', 15, NULL, 3, 4, 1); -- miażdżyca, pacjent 1
-INSERT INTO SZPITAL..terapie VALUES ('2016-10-01', '2016-01-03', 16, 7, 4, 4, 1); -- niedokrwienna, pacjent 1
-INSERT INTO SZPITAL..terapie VALUES ('2016-06-10', '2016-07-01', 8, 8, 8, 13, 2); -- astma, pacjent 2
-INSERT INTO SZPITAL..terapie VALUES ('2016-06-12', '2016-06-17', 19, 1, 6, 1, 3); -- wyrostek, pacjent 3
-INSERT INTO SZPITAL..terapie VALUES ('2016-06-14', '2016-11-04', 21, NULL, 9, 9, 4); -- alzheimer, pacjent 4
-INSERT INTO SZPITAL..terapie VALUES ('2016-07-29', NULL, 21, NULL, 10, 9, 4); -- alzheimer, pacjent 4
-INSERT INTO SZPITAL..terapie VALUES ('2016-11-04', NULL, 21, NULL, 11, 9, 4); -- alzheimer, pacjent 4
-INSERT INTO SZPITAL..terapie VALUES ('2016-06-16', '2016-07-01', 11, 2, 7, 5, 5); -- atopowe, pacjent 5
-INSERT INTO SZPITAL..terapie VALUES ('2016-06-18', '2016-07-02', 13, 5, NULL, 8, 6); -- przepuklina, pacjent 6
-INSERT INTO SZPITAL..terapie VALUES ('2016-06-20', '2016-06-29', 18, 8, 12, 13, 7); -- zapalenie płuc, pacjent 7
-INSERT INTO SZPITAL..terapie VALUES ('2016-06-26', '2016-07-03', 12, 9, NULL, 3, 8); -- kamica, pacjent 8
-INSERT INTO SZPITAL..terapie VALUES ('2016-07-13', NULL, 5, NULL, 13, 11, 9); -- cukrzyca, pacjent 9
-INSERT INTO SZPITAL..terapie VALUES ('2016-07-19', '2016-07-22', 19, 1, NULL, 1, 10); -- wyrostek, pacjent 10
-INSERT INTO SZPITAL..terapie VALUES ('2016-07-20', '2016-07-27', 13, 5, NULL, 8, 11); -- przepuklina, pacjent 11
-INSERT INTO SZPITAL..terapie VALUES ('2016-08-04', '2016-09-22', 6, 4, 6, 6, 12); -- złamanie, pacjent 12
-INSERT INTO SZPITAL..terapie VALUES ('2016-08-04', '2016-08-06', 19, 1, NULL, 1, 13); -- wyrostek, pacjent 13
-INSERT INTO SZPITAL..terapie VALUES ('2016-08-15', '2016-08-25', 18, 8, 12, 13, 14); -- zapalenie płuc, pacjent 14
-INSERT INTO SZPITAL..terapie VALUES ('2016-08-16', NULL, 2, NULL, 14, 12, 15); -- wirusowe zapalenie wątroby typu C, pacjent 15
-INSERT INTO SZPITAL..terapie VALUES ('2016-08-23', '2016-12-23', 5, NULL, 13, 11, 16); -- cukrzyca, pacjent 16
-INSERT INTO SZPITAL..terapie VALUES ('2016-10-24', '2016-10-31', 20, NULL, 15, 9, 17); -- padaczka, pacjent 17
-INSERT INTO SZPITAL..terapie VALUES ('2016-11-18', '2016-11-21', 19, 1, 6, 1, 18); -- wyrostek, pacjent 18
-INSERT INTO SZPITAL..terapie VALUES ('2016-11-28', '2016-12-05', 7, 3, 6, 6, 19); -- zwichnięcie, pacjent 19
-INSERT INTO SZPITAL..terapie VALUES ('2016-12-13', NULL, 4, NULL, 1, 7, 20); -- depresja, pacjent 20
-INSERT INTO SZPITAL..terapie VALUES ('2017-02-14', NULL, 17, 10, 2, 2, 20); -- stany lękowe, pacjent 20
-INSERT INTO SZPITAL..terapie VALUES ('2017-01-24', '2017-01-29', 19, 1, NULL, 1, 21); -- wyrostek, pacjent 21
-INSERT INTO SZPITAL..terapie VALUES ('2017-01-25', NULL, 22, NULL, 6, 9, 22); -- migrena, pacjent 22
-INSERT INTO SZPITAL..terapie VALUES ('2017-02-17', NULL, 4, 10, 1, 2, 23); -- depresja, pacjent 23
-INSERT INTO SZPITAL..terapie VALUES ('2017-03-09', '2017-05-08', 9, 2, 7, 5, 24); -- oparzenie, pacjent 24
-INSERT INTO SZPITAL..terapie VALUES ('2017-03-21', '2017-04-04', 20, NULL, 15, 9, 25); -- padaczka, pacjent 25
-INSERT INTO SZPITAL..terapie VALUES ('2017-04-21', NULL, 17, 10, 2, 7, 26); -- stany lękowe, pacjent 26
-INSERT INTO SZPITAL..terapie VALUES ('2017-05-10', NULL, 11, 2, 7, 5, 27); -- atopowe zapalenie skóry, pacjent 27
-INSERT INTO SZPITAL..terapie VALUES ('2017-05-18', '2017-05-23', 5, NULL, 13, 11, 28); -- cukrzyca, pacjent 28
-INSERT INTO SZPITAL..terapie VALUES ('2017-05-19', NULL, 3, 6, NULL, 9, 29); -- udar mózgu, pacjent 29
-INSERT INTO SZPITAL..terapie VALUES ('2017-05-22', NULL, 10, NULL, 2, 5, 30); -- łuszczyca, pacjent 30
+-- Wypelnij historia_leczenia
+INSERT INTO SZPITAL..historia_leczenia VALUES ('2016-05-30', '2016-09-30', 15, NULL, 3, 4, 1); -- miażdżyca, pacjent 1
+INSERT INTO SZPITAL..historia_leczenia VALUES ('2016-10-01', '2016-01-03', 16, 7, 4, 4, 1); -- niedokrwienna, pacjent 1
+INSERT INTO SZPITAL..historia_leczenia VALUES ('2016-06-10', '2016-07-01', 8, 8, 8, 13, 2); -- astma, pacjent 2
+INSERT INTO SZPITAL..historia_leczenia VALUES ('2016-06-12', '2016-06-17', 19, 1, 6, 1, 3); -- wyrostek, pacjent 3
+INSERT INTO SZPITAL..historia_leczenia VALUES ('2016-06-14', '2016-11-04', 21, NULL, 9, 9, 4); -- alzheimer, pacjent 4
+INSERT INTO SZPITAL..historia_leczenia VALUES ('2016-07-29', NULL, 21, NULL, 10, 9, 4); -- alzheimer, pacjent 4
+INSERT INTO SZPITAL..historia_leczenia VALUES ('2016-11-04', NULL, 21, NULL, 11, 9, 4); -- alzheimer, pacjent 4
+INSERT INTO SZPITAL..historia_leczenia VALUES ('2016-06-16', '2016-07-01', 11, 2, 7, 5, 5); -- atopowe, pacjent 5
+INSERT INTO SZPITAL..historia_leczenia VALUES ('2016-06-18', '2016-07-02', 13, 5, NULL, 8, 6); -- przepuklina, pacjent 6
+INSERT INTO SZPITAL..historia_leczenia VALUES ('2016-06-20', '2016-06-29', 18, 8, 12, 13, 7); -- zapalenie płuc, pacjent 7
+INSERT INTO SZPITAL..historia_leczenia VALUES ('2016-06-26', '2016-07-03', 12, 9, NULL, 3, 8); -- kamica, pacjent 8
+INSERT INTO SZPITAL..historia_leczenia VALUES ('2016-07-13', NULL, 5, NULL, 13, 11, 9); -- cukrzyca, pacjent 9
+INSERT INTO SZPITAL..historia_leczenia VALUES ('2016-07-19', '2016-07-22', 19, 1, NULL, 1, 10); -- wyrostek, pacjent 10
+INSERT INTO SZPITAL..historia_leczenia VALUES ('2016-07-20', '2016-07-27', 13, 5, NULL, 8, 11); -- przepuklina, pacjent 11
+INSERT INTO SZPITAL..historia_leczenia VALUES ('2016-08-04', '2016-09-22', 6, 4, 6, 6, 12); -- złamanie, pacjent 12
+INSERT INTO SZPITAL..historia_leczenia VALUES ('2016-08-04', '2016-08-06', 19, 1, NULL, 1, 13); -- wyrostek, pacjent 13
+INSERT INTO SZPITAL..historia_leczenia VALUES ('2016-08-15', '2016-08-25', 18, 8, 12, 13, 14); -- zapalenie płuc, pacjent 14
+INSERT INTO SZPITAL..historia_leczenia VALUES ('2016-08-16', NULL, 2, NULL, 14, 12, 15); -- wirusowe zapalenie wątroby typu C, pacjent 15
+INSERT INTO SZPITAL..historia_leczenia VALUES ('2016-08-23', '2016-12-23', 5, NULL, 13, 11, 16); -- cukrzyca, pacjent 16
+INSERT INTO SZPITAL..historia_leczenia VALUES ('2016-10-24', '2016-10-31', 20, NULL, 15, 9, 17); -- padaczka, pacjent 17
+INSERT INTO SZPITAL..historia_leczenia VALUES ('2016-11-18', '2016-11-21', 19, 1, 6, 1, 18); -- wyrostek, pacjent 18
+INSERT INTO SZPITAL..historia_leczenia VALUES ('2016-11-28', '2016-12-05', 7, 3, 6, 6, 19); -- zwichnięcie, pacjent 19
+INSERT INTO SZPITAL..historia_leczenia VALUES ('2016-12-13', NULL, 4, NULL, 1, 7, 20); -- depresja, pacjent 20
+INSERT INTO SZPITAL..historia_leczenia VALUES ('2017-02-14', NULL, 17, 10, 2, 2, 20); -- stany lękowe, pacjent 20
+INSERT INTO SZPITAL..historia_leczenia VALUES ('2017-01-24', '2017-01-29', 19, 1, NULL, 1, 21); -- wyrostek, pacjent 21
+INSERT INTO SZPITAL..historia_leczenia VALUES ('2017-01-25', NULL, 22, NULL, 6, 9, 22); -- migrena, pacjent 22
+INSERT INTO SZPITAL..historia_leczenia VALUES ('2017-02-17', NULL, 4, 10, 1, 2, 23); -- depresja, pacjent 23
+INSERT INTO SZPITAL..historia_leczenia VALUES ('2017-03-09', '2017-05-08', 9, 2, 7, 5, 24); -- oparzenie, pacjent 24
+INSERT INTO SZPITAL..historia_leczenia VALUES ('2017-03-21', '2017-04-04', 20, NULL, 15, 9, 25); -- padaczka, pacjent 25
+INSERT INTO SZPITAL..historia_leczenia VALUES ('2017-04-21', NULL, 17, 10, 2, 7, 26); -- stany lękowe, pacjent 26
+INSERT INTO SZPITAL..historia_leczenia VALUES ('2017-05-10', NULL, 11, 2, 7, 5, 27); -- atopowe zapalenie skóry, pacjent 27
+INSERT INTO SZPITAL..historia_leczenia VALUES ('2017-05-18', '2017-05-23', 5, NULL, 13, 11, 28); -- cukrzyca, pacjent 28
+INSERT INTO SZPITAL..historia_leczenia VALUES ('2017-05-19', NULL, 3, 6, NULL, 9, 29); -- udar mózgu, pacjent 29
+INSERT INTO SZPITAL..historia_leczenia VALUES ('2017-05-22', NULL, 10, NULL, 2, 5, 30); -- łuszczyca, pacjent 30
