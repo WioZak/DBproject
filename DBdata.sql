@@ -5,7 +5,7 @@ INSERT INTO SZPITAL..oddzialy VALUES ('Chirurgii i Ortopedii');
 INSERT INTO SZPITAL..oddzialy VALUES ('Kardiologiczny');
 INSERT INTO SZPITAL..oddzialy VALUES ('Psychologii i Psychiatrii');
 INSERT INTO SZPITAL..oddzialy VALUES ('Dermatologii');
-INSERT INTO SZPITAL..oddzialy VALUES ('Diabetologii i chorób wewnętrznych');
+INSERT INTO SZPITAL..oddzialy VALUES ('Diabetologii i Chorób Wewnętrznych');
 INSERT INTO SZPITAL..oddzialy VALUES ('Pulmonologiczny');
 
 -- Wypelnij lekarze
