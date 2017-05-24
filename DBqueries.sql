@@ -25,10 +25,10 @@ SELECT *
 	FROM szpital.dbo.pacjenci
 	WHERE DATEDIFF(DAYOFYEAR,pacjent_data_przyjecia, pacjent_data_wypisu) >= 31
 
--- 6. Wypisz lekarzy, którzy pracuj¹ na oddziale Diabetologii i chorób wewnêtrznych.
+-- 6. Wypisz lekarzy, którzy pracuj¹ na oddziale Diabetologii i Chorób Wewnêtrznych.
 SELECT DISTINCT l.lekarz_imie, l.lekarz_nazwisko, l.lekarz_specjalizacja
 	FROM szpital.dbo.lekarze l JOIN szpital.dbo.oddzialy o ON l.oddzial_id = o.oddzial_id
-	WHERE o.oddzial_nazwa = 'Diabetologii i chorób wewnêtrznych';
+	WHERE o.oddzial_nazwa = 'Diabetologii i Chorób Wewnêtrznych';
 
 -- 7. Wypisz pacjentów przebywaj¹cych kiedykolwiek na oddziale Chirurgii i Ortopedii.
 SELECT DISTINCT p.pacjent_imie, p.pacjent_nazwisko, j.choroba_nazwa
@@ -53,20 +53,27 @@ SELECT szpital.dbo.lekarze.lekarz_specjalizacja, COUNT (*) AS 'liczba pracowniko
 	FROM szpital.dbo.lekarze
 	GROUP BY szpital.dbo.lekarze.lekarz_specjalizacja
 
--- 11. Wyœwietl pacjentów, którzy przechodzili wiêcej ni¿ jedn¹ terapiê. Wyœwietl te terapie. (to jeszcze nie dzia³a)
-select *
-from historia_leczenia
-left join pacjenci
-on pacjenci.pacjent_id=historia_leczenia.pacjent_id
-right join zabiegi
-on zabiegi.zabieg_id=historia_leczenia.zabieg_id
-where historia_leczenia.pacjent_id > 1
-
-select pacjent_id
-from historia_leczenia
-group by pacjent_id
-having count(pacjent_id) > 1
-
+-- 11. Wyœwietl pacjentów, którzy przechodzili wiêcej ni¿ jedn¹ terapiê. Wyœwietl te terapie.
+-- pacjenci
+SELECT DISTINCT p.pacjent_imie, p.pacjent_nazwisko
+	FROM szpital.dbo.historia_leczenia h
+	JOIN szpital.dbo.pacjenci p ON p.pacjent_id = h.pacjent_id
+	WHERE h.pacjent_id IN
+	(SELECT pacjent_id
+		FROM szpital.dbo.historia_leczenia 
+		GROUP BY pacjent_id
+		HAVING COUNT(pacjent_id) > 1)
+-- terapie
+SELECT p.pacjent_imie, p.pacjent_nazwisko, z.zabieg_nazwa, l.lekarstwo_nazwa, h.leczenie_data_rozp, h.leczenie_data_zak
+	FROM szpital.dbo.historia_leczenia h
+	JOIN szpital.dbo.pacjenci p ON p.pacjent_id = h.pacjent_id
+	FULL OUTER JOIN szpital.dbo.zabiegi z ON h.zabieg_id = z.zabieg_id
+	FULL OUTER JOIN szpital.dbo.lekarstwa l ON h.lekarstwo_id = l.lekarstwo_id
+	WHERE h.pacjent_id IN
+	(SELECT pacjent_id
+		FROM szpital.dbo.historia_leczenia 
+		GROUP BY pacjent_id
+		HAVING COUNT(pacjent_id) > 1)
 
 -- 12. Ktorzy z pacjentów zakoñczyli leczenie w 2016 roku? Wyœwietl ich dane osobowe i datê wypisu.
 SELECT pacjenci.pacjent_imie, pacjenci.pacjent_nazwisko, pacjenci.pacjent_pesel, historia_leczenia.leczenie_data_zak
