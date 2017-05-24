@@ -1,7 +1,7 @@
 -- Wypelnij oddzialy
 INSERT INTO SZPITAL..oddzialy VALUES ('Anastezjologii i Intensywnej Terapii');
 INSERT INTO SZPITAL..oddzialy VALUES ('Neurologii');
-INSERT INTO SZPITAL..oddzialy VALUES ('Chirurgii Urazowej i Ortopedii');
+INSERT INTO SZPITAL..oddzialy VALUES ('Chirurgii i Ortopedii');
 INSERT INTO SZPITAL..oddzialy VALUES ('Kardiologiczny');
 INSERT INTO SZPITAL..oddzialy VALUES ('Psychologii i Psychiatrii');
 INSERT INTO SZPITAL..oddzialy VALUES ('Dermatologii');
