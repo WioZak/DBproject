@@ -75,8 +75,7 @@ SELECT pacjenci.pacjent_imie, pacjenci.pacjent_nazwisko, pacjenci.pacjent_pesel,
 	ON szpital.dbo.pacjenci.pacjent_id=historia_leczenia.pacjent_id
 	WHERE DATEPART(YEAR, leczenie_data_zak) = 2016
 
-
--- 13. Który oddzia³ zarabiaja najwiêcej? 
+-- 13. Który oddzia³ zarabia najwiêcej? 
 SELECT top 1 SUM(lekarz_pensja) AS sum_pensja, oddzial_nazwa
 	FROM szpital.dbo.lekarze
 	JOIN szpital.dbo.oddzialy
@@ -91,8 +90,10 @@ SELECT TOP 1 szpital.dbo.lekarstwa.lekarstwo_nazwa, COUNT (*) AS 'ilosc wystapie
 	GROUP BY szpital.dbo.lekarstwa.lekarstwo_nazwa
 	ORDER BY 'ilosc wystapien na receptach' DESC
 
-
--- 15.
-
-
--- ? Który oddzia³ ma najwiêcej pracowników? Wypisz ich nazwiska. (to by byl duplikat chyba)
+-- 15. Wyœwietl pacjentów, którzy przeszli psychoterapiê
+SELECT DISTINCT p.pacjent_imie, p.pacjent_nazwisko, j.choroba_nazwa
+	FROM szpital.dbo.historia_leczenia h 
+	JOIN szpital.dbo.pacjenci p ON h.pacjent_id = p.pacjent_id
+	JOIN szpital.dbo.jednostki_chorobowe j ON h.choroba_id = j.choroba_id
+	JOIN szpital.dbo.zabiegi z ON h.zabieg_id = z.zabieg_id
+	WHERE z.zabieg_nazwa = 'psychoterapia';
