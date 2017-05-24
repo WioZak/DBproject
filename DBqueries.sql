@@ -11,9 +11,9 @@ SELECT szpital.dbo.oddzialy.oddzial_nazwa, COUNT (*) AS 'liczba pracownikow'
 	GROUP BY szpital.dbo.oddzialy.oddzial_nazwa
 
 -- 3. Jaka choroba nie zosta³a zdiagnozowana u pacjentów?
-select jednostki_chorobowe.*
-from jednostki_chorobowe
-where jednostki_chorobowe.choroba_id not in (select historia_leczenia.choroba_id from historia_leczenia) 
+SELECT *
+	FROM szpital.dbo.jednostki_chorobowe
+	WHERE jednostki_chorobowe.choroba_id NOT IN (SELECT historia_leczenia.choroba_id FROM szpital.dbo.historia_leczenia) 
 
 -- 4. Ilu pacjentów nie zakoñczy³o leczenia? 
 /*SELECT DISTINCT pacjent_imie, pacjent_nazwisko, pacjent_data_przyjecia, pacjent_data_wypisu
@@ -27,10 +27,9 @@ SELECT COUNT(*) as 'liczba pacjentow'
 
 -- 5. Wypisz pacjentów, którzy przebywali w szpitalu d³u¿ej ni¿ miesi¹c.
 SELECT *
-FROM szpital.dbo.pacjenci
-WHERE DATEDIFF(DAYOFYEAR,pacjent_data_przyjecia, pacjent_data_wypisu) >= 31
+	FROM szpital.dbo.pacjenci
+	WHERE DATEDIFF(DAYOFYEAR,pacjent_data_przyjecia, pacjent_data_wypisu) >= 31
 
-<<<<<<< HEAD
 -- 6. Wypisz lekarzy, którzy pracuj¹ na oddziale Diabetologii i chorób wewnêtrznych.
 SELECT DISTINCT l.lekarz_imie, l.lekarz_nazwisko, l.lekarz_specjalizacja
 	FROM szpital.dbo.lekarze l JOIN szpital.dbo.oddzialy o ON l.oddzial_id = o.oddzial_id
@@ -78,11 +77,11 @@ WHERE DATEPART(YEAR, leczenie_data_zak) = 2016
 
 -- 13. Który oddzia³ zarabiaja najwiêcej? 
 SELECT top 1 SUM(lekarz_pensja) AS sum_pensja, oddzial_nazwa
-FROM szpital.dbo.lekarze
-JOIN szpital.dbo.oddzialy
-ON oddzialy.oddzial_id = lekarze.oddzial_id
-GROUP BY oddzial_nazwa
-ORDER BY sum_pensja DESC
+	FROM szpital.dbo.lekarze
+	JOIN szpital.dbo.oddzialy
+	ON oddzialy.oddzial_id = lekarze.oddzial_id
+	GROUP BY oddzial_nazwa
+	ORDER BY sum_pensja DESC
 
 -- 14. Wyœwietl lekarstwo najczêœciej przepisywane pacjentom 
 SELECT TOP 1 szpital.dbo.lekarstwa.lekarstwo_nazwa, COUNT (*) AS 'ilosc wystapien na receptach'
