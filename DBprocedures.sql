@@ -18,7 +18,19 @@ order by pracuje_od
 
 
 -- 2. Dodaj nowego pacjenta (jako argumenty dane osobowe, nie proœ o datê przyjêcia - wygeneruj automatycznie).
+create procedure dodaj_pacjenta @imie VARCHAR(25), @nazwisko VARCHAR(50), @pesel VARCHAR(11)
+as
+begin
+insert into pacjenci (pacjent_imie, pacjent_nazwisko, pacjent_pesel, pacjent_data_przyjecia)
+values (@imie, @nazwisko, @pesel, GETDATE())
+end
 
+drop procedure dodaj_pacjenta
+
+exec dodaj_pacjenta Aleksandra, Gandziarowska, 96111904684
+
+select *
+from pacjenci
 
 
 -- 3. Usuñ z historii leczenia terapie zakoñczone przed dat¹ podan¹ w argumencie i pacjentów którzy przestali byæ przypisani do jakiejkolwiek terapii.
