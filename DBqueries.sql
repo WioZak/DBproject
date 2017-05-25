@@ -30,14 +30,14 @@ SELECT DISTINCT l.lekarz_imie, l.lekarz_nazwisko, l.lekarz_specjalizacja
 	FROM szpital.dbo.lekarze l JOIN szpital.dbo.oddzialy o ON l.oddzial_id = o.oddzial_id
 	WHERE o.oddzial_nazwa = 'Diabetologii i Chorób Wewnêtrznych';
 
--- 7. Wypisz pacjentów przebywaj¹cych kiedykolwiek na oddziale Chirurgii i Ortopedii.
+-- 7. Wypisz pacjentów przebywaj¹cych kiedykolwiek na oddziale Chirurgii Urazowej i Ortopedii.
 SELECT DISTINCT p.pacjent_imie, p.pacjent_nazwisko, j.choroba_nazwa
 	FROM szpital.dbo.lekarze l 
 	JOIN szpital.dbo.oddzialy o ON l.oddzial_id = o.oddzial_id 
 	JOIN szpital.dbo.historia_leczenia h ON h.lekarz_id = l.lekarz_id
 	JOIN szpital.dbo.pacjenci p ON h.pacjent_id = p.pacjent_id
 	JOIN szpital.dbo.jednostki_chorobowe j ON h.choroba_id = j.choroba_id
-	WHERE o.oddzial_nazwa = 'Chirurgii i Ortopedii';
+	WHERE o.oddzial_nazwa = 'Chirurgii Urazowej i Ortopedii';
 
 -- 8. Którzy z pracowników maj¹ tytu³ profesora?
 SELECT DISTINCT lekarz_imie, lekarz_nazwisko, lekarz_specjalizacja

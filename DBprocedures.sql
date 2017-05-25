@@ -1,11 +1,11 @@
 -- PROCEDURY
--- 1. Napisz procedurê dodania nowego pacjenta
+-- 1. Zaktualizuj pensje lekarzy pracuj¹cych d³u¿ej ni¿ pó³ roku, zwiêkszaj¹c j¹ o kwotê podan¹ w argumencie.
 
 
--- 2.
+-- 2. Dodaj nowego pacjenta (jako argumenty dane osobowe, nie proœ o datê przyjêcia - wygeneruj automatycznie).
 
 
--- 3.
+-- 3. Usuñ z historii leczenia terapie zakoñczone przed dat¹ podan¹ w argumencie i pacjentów którzy przestali byæ przypisani do jakiejkolwiek terapii.
 
 
 

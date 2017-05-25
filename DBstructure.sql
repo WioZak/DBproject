@@ -19,6 +19,7 @@ CREATE TABLE SZPITAL..lekarze
 	, oddzial_id			INT
 	, CONSTRAINT oddzial_id_fk FOREIGN KEY (oddzial_id) REFERENCES oddzialy(oddzial_id)
 	, uop					BIT DEFAULT 1 NOT NULL
+	, pracuje_od			DATE NOT NULL DEFAULT GETDATE()
     );
 GO
 
