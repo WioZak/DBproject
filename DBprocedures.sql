@@ -1,36 +1,34 @@
 -- PROCEDURY
 -- 1. Zaktualizuj pensje lekarzy pracuj¹cych d³u¿ej ni¿ pó³ roku, zwiêkszaj¹c j¹ o kwotê podan¹ w argumencie.
-create procedure pensja @Kwota int
-as
-begin
-Update lekarze
-set lekarze.lekarz_pensja=lekarze.lekarz_pensja + @Kwota
-where DATEDIFF(DAYOFYEAR,lekarze.pracuje_od,GETDATE()) > 180
-end
+CREATE PROCEDURE pensja @Kwota INT
+AS
+BEGIN
+UPDATE lekarze
+SET lekarze.lekarz_pensja=lekarze.lekarz_pensja + @Kwota
+WHERE DATEDIFF(DAYOFYEAR,lekarze.pracuje_od,GETDATE()) > 180
+END
  
-drop procedure pensja
+--DROP PROCEDURE pensja
+--EXEC pensja 300
 
-exec pensja 300
-
-select *
-from lekarze
-order by pracuje_od
+--SELECT *
+--FROM lekarze
+--ORDER BY pracuje_od
 
 
 -- 2. Dodaj nowego pacjenta (jako argumenty dane osobowe, nie proœ o datê przyjêcia - wygeneruj automatycznie).
-create procedure dodaj_pacjenta @imie VARCHAR(25), @nazwisko VARCHAR(50), @pesel VARCHAR(11)
-as
-begin
-insert into pacjenci (pacjent_imie, pacjent_nazwisko, pacjent_pesel, pacjent_data_przyjecia)
-values (@imie, @nazwisko, @pesel, GETDATE())
-end
+CREATE PROCEDURE dodaj_pacjenta @imie VARCHAR(25), @nazwisko VARCHAR(50), @pesel VARCHAR(11)
+AS
+BEGIN
+INSERT INTO pacjenci (pacjent_imie, pacjent_nazwisko, pacjent_pesel, pacjent_data_przyjecia)
+VALUES (@imie, @nazwisko, @pesel, GETDATE())
+END
 
-drop procedure dodaj_pacjenta
+--DROP PROCEDURE dodaj_pacjenta
+--EXEC dodaj_pacjenta Aleksandra, Gandziarowska, 96111904684
 
-exec dodaj_pacjenta Aleksandra, Gandziarowska, 96111904684
-
-select *
-from pacjenci
+--SELECT *
+--FROM pacjenci
 
 
 -- 3. Usuñ z historii leczenia terapie zakoñczone przed dat¹ podan¹ w argumencie i pacjentów którzy przestali byæ przypisani do jakiejkolwiek terapii.
