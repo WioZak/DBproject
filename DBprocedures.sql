@@ -33,7 +33,24 @@ END
 
 -- 3. Usuñ z historii leczenia terapie zakoñczone przed dat¹ podan¹ w argumencie i pacjentów którzy przestali byæ przypisani do jakiejkolwiek terapii.
 
+drop procedure usun_zabieg
 
+create procedure usun_zabieg @input date
+as
+begin
+delete from historia_leczenia
+where historia_leczenia.leczenie_data_zak < @input
+
+delete from pacjenci
+where pacjenci.pacjent_id  NOT IN (select pacjent_id from historia_leczenia)
+
+end
+
+exec usun_zabieg '2016-09-30'
+
+select *
+from pacjenci
+order by pacjent_id
 
 -- FUNKCJE
 -- 1. Napisz funkcjê, która obliczy zarobek netto ka¿dego lekarza w zale¿noœci od rodzaju umowy
