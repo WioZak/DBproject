@@ -1,8 +1,24 @@
 -- PROCEDURY
 -- 1. Zaktualizuj pensje lekarzy pracuj¹cych d³u¿ej ni¿ pó³ roku, zwiêkszaj¹c j¹ o kwotê podan¹ w argumencie.
+create procedure pensja @Kwota int
+as
+begin
+Update lekarze
+set lekarze.lekarz_pensja=lekarze.lekarz_pensja + @Kwota
+where DATEDIFF(DAYOFYEAR,lekarze.pracuje_od,GETDATE()) > 180
+end
+ 
+drop procedure pensja
+
+exec pensja 300
+
+select *
+from lekarze
+order by pracuje_od
 
 
 -- 2. Dodaj nowego pacjenta (jako argumenty dane osobowe, nie proœ o datê przyjêcia - wygeneruj automatycznie).
+
 
 
 -- 3. Usuñ z historii leczenia terapie zakoñczone przed dat¹ podan¹ w argumencie i pacjentów którzy przestali byæ przypisani do jakiejkolwiek terapii.
