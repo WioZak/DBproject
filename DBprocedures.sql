@@ -1,12 +1,12 @@
 -- PROCEDURY
 -- 1. Zaktualizuj pensje lekarzy pracuj¹cych d³u¿ej ni¿ pó³ roku, zwiêkszaj¹c j¹ o kwotê podan¹ w argumencie.
 CREATE PROCEDURE pensja @Kwota INT
-AS
-BEGIN
-UPDATE lekarze
-SET lekarze.lekarz_pensja=lekarze.lekarz_pensja + @Kwota
-WHERE DATEDIFF(DAYOFYEAR,lekarze.pracuje_od,GETDATE()) > 180
-END
+	AS
+	BEGIN
+		UPDATE lekarze
+		SET lekarze.lekarz_pensja=lekarze.lekarz_pensja + @Kwota
+		WHERE DATEDIFF(DAYOFYEAR,lekarze.pracuje_od,GETDATE()) > 180
+	END
  
 --DROP PROCEDURE pensja
 --EXEC pensja 300
@@ -18,11 +18,11 @@ END
 
 -- 2. Dodaj nowego pacjenta (jako argumenty dane osobowe, nie proœ o datê przyjêcia - wygeneruj automatycznie).
 CREATE PROCEDURE dodaj_pacjenta @imie VARCHAR(25), @nazwisko VARCHAR(50), @pesel VARCHAR(11)
-AS
-BEGIN
-INSERT INTO pacjenci (pacjent_imie, pacjent_nazwisko, pacjent_pesel, pacjent_data_przyjecia)
-VALUES (@imie, @nazwisko, @pesel, GETDATE())
-END
+	AS
+	BEGIN
+		INSERT INTO pacjenci (pacjent_imie, pacjent_nazwisko, pacjent_pesel, pacjent_data_przyjecia)
+		VALUES (@imie, @nazwisko, @pesel, GETDATE())
+	END
 
 --DROP PROCEDURE dodaj_pacjenta
 --EXEC dodaj_pacjenta Aleksandra, Gandziarowska, 96111904684
@@ -33,24 +33,23 @@ END
 
 -- 3. Usuñ z historii leczenia terapie zakoñczone przed dat¹ podan¹ w argumencie i pacjentów którzy przestali byæ przypisani do jakiejkolwiek terapii.
 
-drop procedure usun_zabieg
+DROP PROCEDURE usun_zabieg
 
-create procedure usun_zabieg @input date
-as
-begin
-delete from historia_leczenia
-where historia_leczenia.leczenie_data_zak < @input
+CREATE PROCEDURE usun_zabieg @input DATE
+	AS
+	BEGIN
+		DELETE FROM historia_leczenia
+		WHERE historia_leczenia.leczenie_data_zak < @input
+		DELETE FROM pacjenci
+		WHERE pacjenci.pacjent_id  NOT IN (SELECT pacjent_id FROM historia_leczenia)
 
-delete from pacjenci
-where pacjenci.pacjent_id  NOT IN (select pacjent_id from historia_leczenia)
+	END
 
-end
+--EXEC usun_zabieg '2016-09-30'
 
-exec usun_zabieg '2016-09-30'
-
-select *
-from pacjenci
-order by pacjent_id
+--SELECT *
+--FROM pacjenci
+--ORDER BY pacjent_id
 
 -- FUNKCJE
 -- 1. Napisz funkcjê, która obliczy zarobek netto ka¿dego lekarza w zale¿noœci od rodzaju umowy
