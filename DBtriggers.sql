@@ -81,4 +81,4 @@ SELECT @lekarz_id = inserted.lekarz_id FROM inserted
 END
 
 INSERT INTO lekarze (lekarz_imie, lekarz_nazwisko, lekarz_pensja, lekarz_tytul, oddzial_id) VALUES ('Antoni', 'Makowski', '6000', 'mgr', 1)
-
+SELECT * FROM lekarze WHERE lekarz_nazwisko = 'Makowski'

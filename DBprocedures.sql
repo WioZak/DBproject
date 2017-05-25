@@ -4,16 +4,14 @@ CREATE PROCEDURE pensja @Kwota INT
 	AS
 	BEGIN
 		UPDATE lekarze
-		SET lekarze.lekarz_pensja=lekarze.lekarz_pensja + @Kwota
-		WHERE DATEDIFF(DAYOFYEAR,lekarze.pracuje_od,GETDATE()) > 180
+		SET lekarze.lekarz_pensja = lekarze.lekarz_pensja + @Kwota
+		WHERE DATEDIFF(DAYOFYEAR, lekarze.pracuje_od, GETDATE()) > 180
 	END
  
 --DROP PROCEDURE pensja
 --EXEC pensja 300
 
---SELECT *
---FROM lekarze
---ORDER BY pracuje_od
+--SELECT * FROM lekarze ORDER BY pracuje_od
 
 
 -- 2. Dodaj nowego pacjenta (jako argumenty dane osobowe, nie proœ o datê przyjêcia - wygeneruj automatycznie).
@@ -27,15 +25,14 @@ CREATE PROCEDURE dodaj_pacjenta @imie VARCHAR(25), @nazwisko VARCHAR(50), @pesel
 --DROP PROCEDURE dodaj_pacjenta
 --EXEC dodaj_pacjenta Aleksandra, Gandziarowska, 96111904684
 
---SELECT *
---FROM pacjenci
+--SELECT TOP 1 * FROM pacjenci ORDER BY pacjent_data_przyjecia DESC
 
 
 -- 3. Usuñ z historii leczenia terapie zakoñczone przed dat¹ podan¹ w argumencie i pacjentów którzy przestali byæ przypisani do jakiejkolwiek terapii.
 
-DROP PROCEDURE usun_zabieg
+DROP PROCEDURE usun_terapie
 
-CREATE PROCEDURE usun_zabieg @input DATE
+CREATE PROCEDURE usun_terapie @input DATE
 	AS
 	BEGIN
 		DELETE FROM historia_leczenia
@@ -47,9 +44,9 @@ CREATE PROCEDURE usun_zabieg @input DATE
 
 --EXEC usun_zabieg '2016-09-30'
 
---SELECT *
---FROM pacjenci
---ORDER BY pacjent_id
+--SELECT * FROM historia_leczenia ORDER BY leczenie_data_zak
+--SELECT * FROM pacjenci ORDER BY pacjent_id
+
 
 -- FUNKCJE
 -- 1. Napisz funkcjê, która obliczy zarobek netto ka¿dego lekarza w zale¿noœci od rodzaju umowy
@@ -80,5 +77,4 @@ CREATE FUNCTION dbo.LiczNetto(@LekarzID INT)
   END
 GO
 
-SELECT *, dbo.LiczNetto(lekarz_id) as pensja_netto
-FROM szpital.dbo.lekarze
+--SELECT *, dbo.LiczNetto(lekarz_id) as pensja_netto FROM szpital.dbo.lekarze
