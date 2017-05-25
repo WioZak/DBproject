@@ -9,19 +9,19 @@ INSERT INTO SZPITAL..oddzialy VALUES ('Diabetologii i Chorób Wewnętrznych');
 INSERT INTO SZPITAL..oddzialy VALUES ('Pulmonologiczny');
 
 -- Wypelnij lekarze
-INSERT INTO SZPITAL..lekarze VALUES ('Alicja', 'Szymańska-Keller', '24000', 'prof. dr', 'chirurg', '85050410904', 3);
-INSERT INTO SZPITAL..lekarze VALUES ('Piotr', 'Wanat', '20000', 'prof. dr', 'psychiatra', '86030218750', 5);
-INSERT INTO SZPITAL..lekarze VALUES ('Leon', 'Jasiński', '25000', 'prof. dr', 'chirurg', '87052603078', 1);
-INSERT INTO SZPITAL..lekarze VALUES ('Adam', 'Gajewski', '18000', 'dr', 'kardiolog', '83021611109', 4);
-INSERT INTO SZPITAL..lekarze VALUES ('Beata', 'Jasińska', '19000', 'prof. dr', 'dermatolog', '89010414940', 6);
-INSERT INTO SZPITAL..lekarze VALUES ('Jarosław', 'Góra', '10000', 'dr', 'ortopeda', '83020114511', 3);
-INSERT INTO SZPITAL..lekarze VALUES ('Andrzej', 'Nowisz', '7000', 'mgr', 'psycholog', '92061318934', 5);
-INSERT INTO SZPITAL..lekarze VALUES ('Cristina', 'Yang', '15000', 'dr', 'chirurg', '86111201804', 1);
-INSERT INTO SZPITAL..lekarze VALUES ('Miranda', 'Bailey', '17000', 'dr', 'neurolog', '89122503495', 2);
-INSERT INTO SZPITAL..lekarze VALUES ('Alex', 'Karev', '12000', 'dr', 'ortopeda', '91071102393', 3);
-INSERT INTO SZPITAL..lekarze VALUES ('Cyryl', 'Grzelak', '16000', 'prof. dr', 'diabetolog', '61592759375', 7);
-INSERT INTO SZPITAL..lekarze VALUES ('Agnieszka', 'Marek', '11000', 'dr', 'gastrolog', '83757505924', 7);
-INSERT INTO SZPITAL..lekarze VALUES ('Wanda', 'Kluska', '20000', 'prof. dr', 'pulmonolog', '47592727918', 8);
+INSERT INTO SZPITAL..lekarze VALUES ('Alicja', 'Szymańska-Keller', '24000', 'prof. dr', 'chirurg', '85050410904', 3, 1);
+INSERT INTO SZPITAL..lekarze VALUES ('Piotr', 'Wanat', '20000', 'prof. dr', 'psychiatra', '86030218750', 5, 1);
+INSERT INTO SZPITAL..lekarze VALUES ('Leon', 'Jasiński', '25000', 'prof. dr', 'chirurg', '87052603078', 1, 0);
+INSERT INTO SZPITAL..lekarze VALUES ('Adam', 'Gajewski', '18000', 'dr', 'kardiolog', '83021611109', 4, 1);
+INSERT INTO SZPITAL..lekarze VALUES ('Beata', 'Jasińska', '19000', 'prof. dr', 'dermatolog', '89010414940', 6, 0);
+INSERT INTO SZPITAL..lekarze VALUES ('Jarosław', 'Góra', '10000', 'dr', 'ortopeda', '83020114511', 3, 0);
+INSERT INTO SZPITAL..lekarze VALUES ('Andrzej', 'Nowisz', '7000', 'mgr', 'psycholog', '92061318934', 5, 0);
+INSERT INTO SZPITAL..lekarze VALUES ('Cristina', 'Yang', '15000', 'dr', 'chirurg', '86111201804', 1, 1);
+INSERT INTO SZPITAL..lekarze VALUES ('Miranda', 'Bailey', '17000', 'dr', 'neurolog', '89122503495', 2, 0);
+INSERT INTO SZPITAL..lekarze VALUES ('Alex', 'Karev', '12000', 'dr', 'ortopeda', '91071102393', 3, 1);
+INSERT INTO SZPITAL..lekarze VALUES ('Cyryl', 'Grzelak', '16000', 'prof. dr', 'diabetolog', '61592759375', 7, 1);
+INSERT INTO SZPITAL..lekarze VALUES ('Agnieszka', 'Marek', '11000', 'dr', 'gastrolog', '83757505924', 7, 1);
+INSERT INTO SZPITAL..lekarze VALUES ('Wanda', 'Kluska', '20000', 'prof. dr', 'pulmonolog', '47592727918', 8, 0);
 
 
 -- Wypelnij pacjenci

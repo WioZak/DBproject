@@ -18,6 +18,7 @@ CREATE TABLE SZPITAL..lekarze
 	CONSTRAINT lekarz_peselC CHECK (lekarz_pesel LIKE '%[0-9]%')
 	, oddzial_id			INT
 	, CONSTRAINT oddzial_id_fk FOREIGN KEY (oddzial_id) REFERENCES oddzialy(oddzial_id)
+	, uop					BIT DEFAULT 1 NOT NULL
     );
 GO
 
