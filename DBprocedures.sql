@@ -30,6 +30,8 @@ CREATE PROCEDURE dodaj_pacjenta @imie VARCHAR(25), @nazwisko VARCHAR(50), @pesel
 
 -- 3. Usuñ z historii leczenia terapie zakoñczone przed dat¹ podan¹ w argumencie i pacjentów którzy przestali byæ przypisani do jakiejkolwiek terapii.
 
+--SELECT * FROM historia_leczenia WHERE leczenie_data_zak < '2016-09-30' ORDER BY leczenie_data_zak
+
 DROP PROCEDURE usun_terapie
 
 CREATE PROCEDURE usun_terapie @input DATE
